@@ -9,6 +9,9 @@ api:
 mongodb:
   auth:
     rootUser: mongoRoot
-    username: mongouser
-    password: mongopwd
-    database: produto
+    usernames:
+      - mongouser
+    passwords:
+      - mongopwd
+    databases:
+      - produto
