@@ -1,0 +1,14 @@
+api:
+  image: fabricioveronez/pedelogo-catalogo
+  tag: v1
+  serviceType: LoadBalancer
+  #ingress:
+  #  - site.com.br
+  #  - api.site.com.br
+
+mongodb:
+  auth:
+    rootUser: mongoRoot
+    username: mongouser
+    password: mongopwd
+    database: produto

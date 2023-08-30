@@ -1,0 +1,25 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: {{ template "api.deploymentName" . }}
+spec:
+  selector:
+    matchLabels:
+      app: {{ template "api.labelName" . }}
+  template: 
+    metadata:          
+      labels:
+        app: {{ template "api.labelName" . }}
+    spec:            
+      containers:
+      - name: api
+        image: {{ .Values.api.image }}:{{ .Values.api.tag }}
+        ports:
+        - containerPort: 80
+        imagePullPolicy: Always
+        resources: {}
+        envFrom:
+          - configMapRef:
+              name: {{ template "api.configmapName" . }}
+          - secretRef:
+              name: {{ template "api.secretName" . }}
